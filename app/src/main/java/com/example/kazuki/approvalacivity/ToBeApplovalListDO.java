@@ -9,7 +9,6 @@ import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBTable;
  */
 
 @DynamoDBTable(tableName = "teataws-mobilehub-373292042-toBeApplovalList")
-
 public class ToBeApplovalListDO {
     private int _id;
     private String _userName;

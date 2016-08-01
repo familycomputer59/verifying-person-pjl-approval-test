@@ -1,9 +1,7 @@
 package com.example.kazuki.approvalacivity;
 
 import android.content.Context;
-import android.util.Log;
 
-import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
@@ -38,7 +36,7 @@ public class AmazonClientManager {
     private void initClients() {
         CognitoCachingCredentialsProvider credentials = new CognitoCachingCredentialsProvider(
                 context,
-                Constants.IDENTITY_POOL_ID,
+                AWSConfiguration.IDENTITY_POOL_ID,
                 Regions.US_EAST_1);
 
         ddb = new AmazonDynamoDBClient(credentials);
