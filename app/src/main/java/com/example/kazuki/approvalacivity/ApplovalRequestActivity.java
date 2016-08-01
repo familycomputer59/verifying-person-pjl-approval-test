@@ -9,8 +9,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.amazonaws.retry.RetryUtils;
-
 public class ApplovalRequestActivity extends AppCompatActivity {
 
     private EditText userNameTextView;
@@ -29,7 +27,7 @@ public class ApplovalRequestActivity extends AppCompatActivity {
         userNameTextView = (EditText)findViewById(R.id.UserName);
         studentsNameTextView = (EditText)findViewById(R.id.StudentsName);
         parentsNameTextView = (EditText)findViewById(R.id.ParentsName);
-        registerBtn = (Button)findViewById(R.id.login);
+        registerBtn = (Button)findViewById(R.id.btnRegister);
 
         // ContextでDatePickerを作成
         datePicker = (DatePicker)findViewById(R.id.datrPick);

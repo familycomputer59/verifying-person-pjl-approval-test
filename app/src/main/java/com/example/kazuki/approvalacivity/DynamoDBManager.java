@@ -33,7 +33,7 @@ public class DynamoDBManager {
                         .ddb();
 
                 DescribeTableRequest request = new DescribeTableRequest()
-                        .withTableName(Constants.TEST_TABLE_NAME);
+                        .withTableName(AWSConfiguration.TEST_TABLE_NAME);
                 DescribeTableResult result = ddb.describeTable(request);
 
                 String status = result.getTable().getTableStatus();
@@ -77,7 +77,7 @@ public class DynamoDBManager {
             ClientConfiguration clientConfiguration = new ClientConfiguration();
             CognitoCachingCredentialsProvider credentialsProvider =
             new CognitoCachingCredentialsProvider(context,
-                    Constants.IDENTITY_POOL_ID,
+                    AWSConfiguration.IDENTITY_POOL_ID,
                     Regions.US_EAST_1,
                     clientConfiguration
             );

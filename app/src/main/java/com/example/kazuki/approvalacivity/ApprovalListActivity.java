@@ -38,23 +38,29 @@ public class ApprovalListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final int fPosition = position;
-                new AlertDialog.Builder(ApprovalListActivity.this)
-                        .setTitle("Check")
-                        .setMessage("Will you approve it?")
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                mToBeApplovalListDO = mlist.get(fPosition);
-                                mToBeApplovalListDO.set_bApproval(true);
-                                new updateToBeApplovalListDO().execute();
-                            }
-                        })
-                        .setNegativeButton("Cancel", null)
-                        .show();
+                if (!((mlist.get(fPosition)).is_bApproval())) {
+                    new AlertDialog.Builder(ApprovalListActivity.this)
+                            .setTitle("Check")
+                            .setMessage("Will you approve it?")
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    mToBeApplovalListDO = mlist.get(fPosition);
+                                    mToBeApplovalListDO.set_bApproval(true);
+                                    new updateToBeApplovalListDO().execute();
+                                }
+                            })
+                            .setNegativeButton("Cancel", null)
+                            .show();
+                } else {
+                    Toast.makeText(ApprovalListActivity.this, "Apploved",Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
 
+
+    //  Get userList from DynamoDB
     private class GetUserListTask extends AsyncTask<Void, Void, Void> {
 
         protected Void doInBackground(Void... inputs) {
